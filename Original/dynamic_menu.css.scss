@@ -1,0 +1,23 @@
+@mixin rounded($side, $radius: 10px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+.dynamic_menu { position: fixed; color: #FFF;
+  .dynamic_container { position: relative; z-index: 9998; display: none; float: left; background: #000; border: 1px solid #FFF; height: 400px; width: 1000px;
+    iframe.dynamic_iframe { border: 0; width: 98%; height: 98%; overflow: hidden; }
+  }
+  ul.dynamic_tabs {
+    li.dynamic_li { width: -moz-fit-content; position: relative; z-index: 9999; border: 1px solid #FFF; background: #000; padding: 10px; cursor: pointer; }
+    li.top { @include rounded(bottom-right); @include rounded(bottom-left); float: left; }
+    li.right { @include rounded(top-left); @include rounded(bottom-left); float: right; clear: both; }
+    li.left { @include rounded(top-right); @include rounded(bottom-right); }
+    li.bottom { @include rounded(top-left); @include rounded(top-right); float: left; }
+    li.top_selected { border-top: 0 !important }
+    li.right_selected { border-right: 0 !important }
+    li.bottom_selected { border-bottom: 0 !important }
+    li.left_selected { border-left: 0 !important }
+  }
+}
+
